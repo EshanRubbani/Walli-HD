@@ -1,21 +1,19 @@
 import "package:flutter/material.dart";
-import "package:get/get_core/src/get_main.dart";
-import "package:get/get_navigation/get_navigation.dart";
 import "package:myapp/helpers/colors.dart";
-import "package:myapp/views/SearchScreen/searchScreen.dart";
 import "package:myapp/views/Widgets/CatBlock.dart";
 import "package:myapp/views/Widgets/CustomAppBar.dart";
 import "package:myapp/views/Widgets/SearchBar.dart";
 import "package:myapp/views/Widgets/Wall.dart";
 
-class HomeScreen extends StatefulWidget {
-  HomeScreen({Key? key}) : super(key: key);
+class SearchScreen extends StatefulWidget {
+  
+SearchScreen({Key? key}) : super(key: key);
 
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _SearchScreenState createState() => _SearchScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _SearchScreenState extends State<SearchScreen> {
   final ScrollController _scrollController = ScrollController();
 
   @override
@@ -60,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             children: [
               SearchBarCustom(),
-              buildCategories(context),
+              
               buildWalls(context),
             ],
           ),
@@ -71,7 +69,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Container buildWalls(BuildContext context) {
     return Container(
-        margin: EdgeInsets.all(16),
+        margin: EdgeInsets.all(
+16),
         constraints: BoxConstraints(
           maxHeight: MediaQuery.of(context).size.height - 225,
           maxWidth: MediaQuery.of(context).size.width,
@@ -92,19 +91,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ));
   }
 
-  Container buildCategories(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(top: 10, left: 16, right: 16),
-      height: 50,
-      width: MediaQuery.of(context).size.width,
-      child: ListView.builder(
-        itemBuilder: (context, index) => CatBlock(),
-        scrollDirection: Axis.horizontal,
-        itemCount: 8,
-      ),
-    );
-  }
-
+  
   AppBar HomeAppBar() {
     return AppBar(
       elevation: 0.0,

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 import 'package:myapp/helpers/colors.dart';
 import 'package:myapp/helpers/textStyle.dart';
+import 'package:myapp/views/SearchScreen/searchScreen.dart';
 
 class SearchBarCustom extends StatelessWidget {
   const SearchBarCustom({Key? key}) : super(key: key);
@@ -26,9 +29,14 @@ class SearchBarCustom extends StatelessWidget {
           focusedErrorBorder: InputBorder.none,
           enabledBorder: InputBorder.none,
           disabledBorder: InputBorder.none,
-          suffixIcon: const Icon(
-            Icons.search,
-            color: AppColors.deepPurple,
+          suffixIcon:  IconButton(
+            icon: Icon(
+              Icons.search,
+              color: AppColors.deepPurple,
+            ),
+            onPressed: () {
+              Get.to(SearchScreen());
+            },
           ),
         ),
       ),
