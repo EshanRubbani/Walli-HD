@@ -33,20 +33,25 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Container buildWalls(BuildContext context) {
     return Container(
+        color: Colors.red,
         margin: EdgeInsets.all(16),
-        color: AppColors.deepPurple,
         constraints: BoxConstraints(
-          maxHeight: MediaQuery.of(context).size.height - 250,
+          maxHeight: MediaQuery.of(context).size.height - 200,
           maxWidth: MediaQuery.of(context).size.width,
           minHeight: 400,
           minWidth: MediaQuery.of(context).size.width,
         ),
         child: GridView.builder(
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            childAspectRatio: 9 / 16,
+            crossAxisCount: 3,
+            mainAxisSpacing: 5,
+            crossAxisSpacing: 5,
           ),
           itemCount: 10,
-          itemBuilder: (context, index) => Wall(),
+          itemBuilder: (context, index) => Container(
+            child: Wall(),
+          ),
         ));
   }
 
