@@ -6,8 +6,8 @@ import 'package:myapp/helpers/textStyle.dart';
 import 'package:myapp/views/SearchScreen/searchScreen.dart';
 
 class SearchBarCustom extends StatelessWidget {
-  const SearchBarCustom({Key? key}) : super(key: key);
-
+   SearchBarCustom({Key? key}) : super(key: key);
+  final TextEditingController searchController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,6 +20,12 @@ class SearchBarCustom extends StatelessWidget {
         borderRadius: BorderRadius.circular(25),
       ),
       child: TextField(
+        controller: searchController,
+        style: AppTextStyles.searchbar(context),
+        cursorColor: AppColors.deepPurple,
+        onSubmitted: (value) {
+          Get.to(SearchScreen(query: value,));
+        },
         decoration: InputDecoration(
           hintText: "Search Wallpaper",
           hintStyle: AppTextStyles.searchbar(context),
@@ -35,7 +41,7 @@ class SearchBarCustom extends StatelessWidget {
               color: AppColors.deepPurple,
             ),
             onPressed: () {
-              Get.to(SearchScreen());
+              Get.to(SearchScreen(query: searchController.text,));
             },
           ),
         ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:myapp/views/HomeScreen/homescreen.dart';
+import 'package:myapp/views/SearchScreen/searchScreen.dart';
 
 void main() {
   runApp(const MyApp());

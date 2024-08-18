@@ -1,8 +1,7 @@
 import "package:flutter/material.dart";
-import "package:get/get_core/src/get_main.dart";
-import "package:get/get_navigation/get_navigation.dart";
+import "package:myapp/Controllers/ApiOperations.dart";
+import "package:myapp/Models/PhotosModel.dart";
 import "package:myapp/helpers/colors.dart";
-import "package:myapp/views/SearchScreen/searchScreen.dart";
 import "package:myapp/views/Widgets/CatBlock.dart";
 import "package:myapp/views/Widgets/CustomAppBar.dart";
 import "package:myapp/views/Widgets/SearchBar.dart";
@@ -16,13 +15,22 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  late List<PhotoModel> trendingwallList;
+
   final ScrollController _scrollController = ScrollController();
+  getTrendingWallpapers() async {
+    trendingwallList = await ApiOperations.getTrendingWallpapers();
+    setState(() {
+      
+    });
+  }
 
   @override
   void initState() {
     super.initState();
     // Listen for keyboard visibility changes
     FocusManager.instance.addListener(_onFocusChange);
+    getTrendingWallpapers();
   }
 
   @override
@@ -42,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void _scrollToTop() {
     _scrollController.animateTo(
       0,
-      duration: Duration(seconds: 5), // Animate for 2 seconds
+      duration: const Duration(seconds: 5), // Animate for 2 seconds
       curve: Curves.easeInOut,
     );
   }
@@ -59,7 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
           controller: _scrollController, // Assign the controller
           child: Column(
             children: [
-              SearchBarCustom(),
+               SearchBarCustom(),
               buildCategories(context),
               buildWalls(context),
             ],
@@ -71,7 +79,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Container buildWalls(BuildContext context) {
     return Container(
-        margin: EdgeInsets.all(16),
+        margin: const EdgeInsets.all(16),
         constraints: BoxConstraints(
           maxHeight: MediaQuery.of(context).size.height - 225,
           maxWidth: MediaQuery.of(context).size.width,
@@ -79,26 +87,26 @@ class _HomeScreenState extends State<HomeScreen> {
           minWidth: MediaQuery.of(context).size.width,
         ),
         child: GridView.builder(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             childAspectRatio: 9 / 16,
             crossAxisCount: 3,
             mainAxisSpacing: 5,
             crossAxisSpacing: 5,
           ),
-          itemCount: 25,
+          itemCount: trendingwallList.length,
           itemBuilder: (context, index) => Container(
-            child: Wall(),
+            child: Wall(src: trendingwallList[index].imgSrc,),
           ),
         ));
   }
 
   Container buildCategories(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 10, left: 16, right: 16),
+      margin: const EdgeInsets.only(top: 10, left: 16, right: 16),
       height: 50,
       width: MediaQuery.of(context).size.width,
       child: ListView.builder(
-        itemBuilder: (context, index) => CatBlock(),
+        itemBuilder: (context, index) => const CatBlock(),
         scrollDirection: Axis.horizontal,
         itemCount: 8,
       ),
@@ -109,7 +117,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return AppBar(
       elevation: 0.0,
       backgroundColor: AppColors.lightBackgroundColor,
-      title: CustomAppBar(),
+      title: const CustomAppBar(),
     );
   }
 }

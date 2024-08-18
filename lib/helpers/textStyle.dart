@@ -58,6 +58,15 @@ class AppTextStyles {
             : AppColors.darkTextColor,
       );
 
+  static TextStyle searchbar1(BuildContext context) => GoogleFonts.poppins(
+        fontSize: 20,
+        fontWeight: FontWeight.w600,
+        letterSpacing: 0.15,
+        color: Theme.of(context).brightness == Brightness.light
+            ? AppColors.darkTextColor
+            : AppColors.lightTextColor,
+      );
+
   static TextStyle subtitle2(BuildContext context) => GoogleFonts.poppins(
         fontSize: 12,
         fontWeight: FontWeight.w500,
