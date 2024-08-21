@@ -15,6 +15,17 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  List categories = [
+      "Nature and Landscapes",
+"Abstract and Minimalist",
+"Animals and Wildlife",
+"Cityscapes and Architecture",
+"Space and Astronomy",
+"Artistic and Illustrative",
+"Movies and TV Shows",
+"Sports and Fitness",
+"Gaming and Esports",
+"Quotes and Typography",];
   late List<PhotoModel> trendingwallList;
 
   final ScrollController _scrollController = ScrollController();
