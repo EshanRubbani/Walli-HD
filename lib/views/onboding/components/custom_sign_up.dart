@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:myapp/views/onboding/components/sign_in_form.dart';
 
-Future<Object?> customSigninDialog(BuildContext context,
+Future<Object?> customSignupDialog(BuildContext context,
     {required ValueChanged onClosed}) {
   return showGeneralDialog(
       barrierDismissible: true,

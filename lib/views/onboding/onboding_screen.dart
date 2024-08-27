@@ -59,7 +59,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       width: 260,
                       child: Column(children: [
                         Text(
-                          "Learn design & code",
+                          "Wallex",
+                          textAlign: TextAlign.start,
                           style: TextStyle(
                               fontSize: 60, fontFamily: "Poppins", height: 1.2),
                         ),
@@ -67,7 +68,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           height: 16,
                         ),
                         Text(
-                            "Don't skip design. Learn design and code, by builder real apps with Flutter and Swift. Complete courses about best tools.")
+                            "Transform your screen with Wallex – the ultimate wallpaper app offering stunning, high-quality backgrounds tailored to your style. Elevate your device's look effortlessly!")
                       ]),
                     ),
                     const Spacer(
@@ -92,7 +93,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     const Padding(
                       padding: EdgeInsets.symmetric(vertical: 24.0),
                       child: Text(
-                        "Purchase includes access to 30+ courses, 240+ premium tutorials, 120+ hours of videos, source files and certificates",
+                        "Discover the latest trends with Wallex – your go-to app for free, high-quality wallpapers. Upgrade your style with just a tap!",
                         style: TextStyle(),
                       ),
                     )
